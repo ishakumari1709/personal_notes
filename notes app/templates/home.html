@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Notes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f6ff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            margin-top: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2b2e4a;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4e89ff;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .note {
+            background-color: #e9f0ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 5px solid #4e89ff;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #4e89ff;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #3a6dd8;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>My Notes</h2>
+    <a href="/add"><button>Add New Note</button></a><br><br>
+    {% for note in notes %}
+        <div class="note">
+            <p>{{ note[1] }}</p>
+            <a href="/delete/{{ note[0] }}"><button>Delete</button></a>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>
